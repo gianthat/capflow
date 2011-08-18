@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "tampon"
   gem.homepage = "http://github.com/esmarkowski/tampon"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Gitflow enabled capistrano}
+  gem.description = %Q{An unrestictive way to deploy using gitflow and capistrano}
   gem.email = "spencer@theablefew.com"
   gem.authors = ["Spencer Markowski"]
   # dependencies defined in Gemfile
