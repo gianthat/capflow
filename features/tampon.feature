@@ -1,9 +1,6 @@
-Feature: something something
-  In order to something something
-  A user something something
-  something something something
+Feature: Manage release tags
 
-  Scenario: something something
-    Given inspiration
-    When I create a sweet new gem
+  Scenario: Attemping to deploy a production release
+    Given I want to deploy to production
+    When I type 
     Then everyone should see how awesome I am
