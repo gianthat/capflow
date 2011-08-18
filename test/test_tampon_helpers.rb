@@ -39,6 +39,10 @@ class TestTamponHelpers < Test::Unit::TestCase
         assert @test_class.non_release_tags.kind_of?(Array)
       end
 
+      should 'should be test-non-release-tag' do
+        assert_equal 'test-non-release-tag', @test_class.non_release_tags.last
+      end
+
     end
     
     context "branches" do
@@ -57,12 +61,12 @@ class TestTamponHelpers < Test::Unit::TestCase
       
       should "show the current branch" do
         puts "\ncurrent branch: #{@test_class.current_branch}"
-        assert_equal "master", @test_class.current_branch
+        assert_equal "develop", @test_class.current_branch
       end
 
     end
     
-    context "version tags" do 
+    context "version tag prefix" do 
       
       should "respond_to version_tag_prefix" do
         assert_respond_to @test_class, :version_tag_prefix
@@ -89,9 +93,16 @@ class TestTamponHelpers < Test::Unit::TestCase
       end
 
       should 'display latest release' do 
-        assert_equal 'v1.4.2', @test_class.latest_release
+        assert_equal 'v1.4.1', @test_class.latest_release
       end
 
+    end
+    
+    should 'display banner' do
+      puts @test_class.banner
+      assert_nothing_raised do 
+        @test_class.banner
+      end
     end
 
   end

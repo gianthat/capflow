@@ -44,15 +44,17 @@ module Capistrano
           Capistrano::CLI.ui.say "#{releases.join("\n")}"
         end
 
-        def deploy_from
-          if stage == :production
-            Capistrano::CLI.ui.ask "\nRelease to deploy: [#{current_branch}] ".color(:yellow).bright.to_url
-          elsif stage == :staging
-            Capistrano::CLI.ui.ask "\nTag or release to deploy (make sure to push the tag/release first): [#{current_branch}] ".color(:yellow).bright.to_url
-          end
+        def banner
+
+          <<-BANNER
+\nTampon for Gitflow
+  ,-------------.
+ (o) _ __ _____  )--.
+  `-------------'    )
+                    (     /
+                     `---'
+          BANNER
         end
-
-
 
     end
   end
