@@ -8,8 +8,8 @@ module Capistrano
 
     def self.load_into(capistrano_configuration)
       capistrano_configuration.load do
-        before "deploy:update_code", "gitflow:calculate_tag"
-        before "gitflow:calculate_tag", "gitflow:verify_up_to_date"
+        before "deploy:update_code", "tampon:calculate_tag"
+        before "tampon:calculate_tag", "tampon:verify_up_to_date"
 
         namespace :tampon do
           
