@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tampon}
-  s.version = "0.1.0"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Spencer Markowski"]
@@ -22,11 +22,13 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
     "features/step_definitions/tampon_steps.rb",
     "features/support/env.rb",
     "features/tampon.feature",
     "lib/capistrano/helpers/tampon_helper.rb",
     "lib/capistrano/tampon.rb",
+    "recipes/tampon_recipes.rb",
     "tampon.gemspec",
     "test/helper.rb",
     "test/test_tampon.rb",
@@ -43,7 +45,6 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<capistrano>, [">= 0"])
-      s.add_runtime_dependency(%q<rake>, ["= 0.8.7"])
       s.add_runtime_dependency(%q<stringex>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
       s.add_development_dependency(%q<active_support>, [">= 0"])
@@ -55,7 +56,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<capistrano>, [">= 0"])
-      s.add_dependency(%q<rake>, ["= 0.8.7"])
       s.add_dependency(%q<stringex>, [">= 0"])
       s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
       s.add_dependency(%q<active_support>, [">= 0"])
@@ -68,7 +68,6 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<capistrano>, [">= 0"])
-    s.add_dependency(%q<rake>, ["= 0.8.7"])
     s.add_dependency(%q<stringex>, [">= 0"])
     s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
     s.add_dependency(%q<active_support>, [">= 0"])
