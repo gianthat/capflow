@@ -146,7 +146,7 @@ Please make sure you have pulled and pushed all code before deploying:
 
             #end
 
-            set :branch, new_staging_tag
+            set :branch, staging_destination
           end
 
           desc "Push the approved tag to production. Pass in tag to deploy with '-s tag=staging-YYYY-MM-DD-X-feature'."
