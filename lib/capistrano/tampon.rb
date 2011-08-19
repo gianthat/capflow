@@ -15,7 +15,8 @@ module Capistrano
         namespace :tampon do
               
         def who
-          (`git config user.name` || `whoami`).chomp
+          identity = (`git config user.name` || `whoami`)
+          identity.chomp.to_url
         end
 
         def tags

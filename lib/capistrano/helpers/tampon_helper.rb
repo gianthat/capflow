@@ -3,7 +3,8 @@ module Capistrano
     module TamponHelper
       
         def who
-          (`git config user.name` || `whoami`).chomp.to_url
+          identity = (`git config user.name` || `whoami`)
+          identity.chomp.to_url
         end
 
         def tags
