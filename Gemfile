@@ -4,11 +4,11 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 gem 'capistrano'
 gem 'stringex'
-gem 'active_support'
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
   gem "shoulda", "~> 3.0.0.beta2"
+  gem 'active_support'
   gem 'i18n'
   gem 'minitest-rg'
   gem "cucumber", ">= 0"
