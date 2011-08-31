@@ -75,8 +75,10 @@ module Capistrano
             if stage == :production
               from_destination = Capistrano::CLI.ui.ask "\nRelease to deploy: [#{current_branch}] ".color(:yellow).bright
             elsif stage == :staging
-              create_tag = Capistrano::CLI.ui.ask("Do you want to tag deployment? [y/N]".color(:yellow)).to_url
-              next_tag if create_tag
+              create_tag = Capistrano::CLI.ui.agree("Do you want to tag deployment? [y/N]".color(:yellow)) do |q|
+                q.default = 'N'
+              end
+              return next_tag if create_tag
               from_destination = Capistrano::CLI.ui.ask "\nBranch, tag or release to deploy: [#{current_branch}] ".color(:yellow).bright
             end
             return from_destination
@@ -84,11 +86,11 @@ module Capistrano
 
           def next_tag
             hwhen   = Date.today.to_s
-            what = Capistrano::CLI.ui.ask("What does this release introduce? (this will be normalized and used in the tag for this release) ").to_url
+            what = Capistrano::CLI.ui.ask("What does this release introduce? (this will be normalized and used in the tag for this release)".color(:yellow)).to_url
             new_staging_tag = "#{hwhen}-#{who}-#{what}"
-            puts "Tagging current branch for deployment to staging as '#{new_staging_tag}'"
+            puts "Tagging current branch for deployment to staging as '#{new_staging_tag}'".color(:green)
             system "git tag -a -m 'tagging current code for deployment to staging' #{new_staging_tag}"
-            return what
+            return new_staging_tag
           end
 
           def using_git?
