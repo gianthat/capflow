@@ -1,15 +1,17 @@
 namespace :gitflow do
   desc 'Gitflow setup for use with tampon'
   task :prepare do
-     unless (`git branch -r --no-color` =~ /develop/).nil?
+     if (`git branch -r --no-color` =~ /develop/).nil?
       #doesn't exist remotely
+       puts "Creating Develop Branch"
       `git push origin origin:refs/heads/develop`
       `git fetch origin`
       `git checkout --track -b develop origin/develop`
      else
-       unless (`git branch --no-color` =~ /develop/).nil?
+       if (`git branch --no-color` =~ /develop/).nil?
+         puts "Tracking Remote Develop Branch"
          #doesn't exist locally but exists remotely
-         `git checkout --track -b develop origin/develop`
+         `git checkout --track -B develop origin/develop`
        end
      end
     `git flow init -df`

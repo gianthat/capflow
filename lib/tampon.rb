@@ -1,3 +1,3 @@
 module Tampon
-  require 'lib/railtie' if defined?(Rails)
+  require 'railtie' if defined?(Rails)
 end
