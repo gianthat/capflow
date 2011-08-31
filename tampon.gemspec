@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tampon}
-  s.version = "0.1.14"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Spencer Markowski"]
@@ -27,8 +27,9 @@ Gem::Specification.new do |s|
     "features/support/env.rb",
     "features/tampon.feature",
     "lib/capistrano/helpers/tampon_helper.rb",
-    "lib/capistrano/railtie.rb",
     "lib/capistrano/tampon.rb",
+    "lib/railtie.rb",
+    "lib/tampon.rb",
     "lib/tasks/tampon.rake",
     "recipes/tampon_recipes.rb",
     "tampon.gemspec",
