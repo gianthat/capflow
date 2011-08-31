@@ -44,7 +44,7 @@ module Capistrano
         end
 
         def latest_release
-          releases.sort{|x,y| x.split(version_tag_prefix).last <=> y.split(version_tag_prefix).last}.last
+          releases.sort{|x,y| x.split(version_tag_prefix).last.to_i <=> y.split(version_tag_prefix).last.to_i}.last
         end
 
         def available_tags
@@ -80,6 +80,7 @@ module Capistrano
                 q.default = 'N'
               end
               return next_tag if create_tag
+              available_tags
               from_destination = Capistrano::CLI.ui.ask "\nBranch, tag or release to deploy: [#{current_branch}] ".color(:yellow).bright
             end
             return from_destination
