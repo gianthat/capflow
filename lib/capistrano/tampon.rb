@@ -73,7 +73,8 @@ module Capistrano
 
           def deploy_from
             if stage == :production
-              from_destination = Capistrano::CLI.ui.ask "\nRelease to deploy: [#{current_branch}] ".color(:yellow).bright
+              available_releases
+              from_destination = Capistrano::CLI.ui.ask "\nRelease to deploy: [#{latest_release}] ".color(:yellow).bright
             elsif stage == :staging
               create_tag = Capistrano::CLI.ui.agree("Do you want to tag deployment? [y/N]".color(:yellow)) do |q|
                 q.default = 'N'
