@@ -13,7 +13,12 @@ deploy from the HEAD of whatever branch you are on (feature, develop, hotfix, et
 
 You can use the most recent tampon gem by adding it to your Gemfile:
 
+  gem 'tampon'
+
+Or install it the old-fashioned way: 
+
   gem install tampon
+
 
 == Capistrano Setup
 
