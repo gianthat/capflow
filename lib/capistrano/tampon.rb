@@ -81,8 +81,9 @@ module Capistrano
               end
               return next_tag if create_tag
               available_tags
-              from_destination = Capistrano::CLI.ui.ask "\nBranch, tag or release to deploy: [#{current_branch}] ".color(:yellow).bright
-              from_destination ||= current_branch
+              from_destination = Capistrano::CLI.ui.ask "\nBranch, tag or release to deploy:".color(:yellow).bright do |q|
+                q.default = current_branch
+              end
             end
             return from_destination
           end
