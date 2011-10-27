@@ -125,15 +125,18 @@ Please make sure you have pulled and pushed all code before deploying:
             if using_git?
               # make sure we have any other deployment tags that have been pushed by others so our auto-increment code doesn't create conflicting tags
               `git fetch`
+              if stage == :production
+                  tag_prduction
+              else
+                  tag_staging
+              end
 
-              if respond_to?("tag_#{stage}")
-                send "tag_#{stage}" 
 
                 system "git push --tags origin #{local_branch}"
                 if $? != 0
                   abort "git push failed"
                 end
-              end
+
             end
           end
 
