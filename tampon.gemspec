@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{tampon}
-  s.version = "0.3.0"
+  s.name = "tampon"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Spencer Markowski"]
-  s.date = %q{2011-09-07}
-  s.description = %q{An unrestictive way to deploy using gitflow and capistrano}
-  s.email = %q{spencer@theablefew.com}
+  s.date = "2011-10-27"
+  s.description = "An unrestictive way to deploy using gitflow and capistrano"
+  s.email = "spencer@theablefew.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -37,11 +37,11 @@ Gem::Specification.new do |s|
     "test/test_tampon.rb",
     "test/test_tampon_helpers.rb"
   ]
-  s.homepage = %q{http://github.com/esmarkowski/tampon}
+  s.homepage = "http://github.com/esmarkowski/tampon"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{Gitflow enabled capistrano}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Gitflow enabled capistrano"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
