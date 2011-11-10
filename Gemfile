@@ -12,7 +12,7 @@ group :development do
   gem 'i18n'
   gem 'minitest-rg'
   gem "cucumber", ">= 0"
-  gem "bundler", "~> 1.0.0"
+  gem "bundler"
   gem "jeweler", "~> 1.6.4"
   gem "rcov", ">= 0"
 end
