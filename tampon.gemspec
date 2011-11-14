@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tampon"
-  s.version = "0.5.0"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Spencer Markowski"]
-  s.date = "2011-11-10"
+  s.date = "2011-11-14"
   s.description = "An unrestictive way to deploy using gitflow and capistrano"
   s.email = "spencer@theablefew.com"
   s.extra_rdoc_files = [
