@@ -40,11 +40,11 @@ module Capistrano
         end
 
         def releases
-          tags.select{|t| t =~ /^#{version_tag_prefix}(\d+)/}
+          tags.select{|t| t =~ /^#{version_tag_prefix}(\d+)/}.collect{|version| Versionomy.parse(version) }
         end
 
         def latest_release
-          releases.sort{|x,y| x.split(version_tag_prefix).last.to_i <=> y.split(version_tag_prefix).last.to_i}.last
+          releases.sort.reverse.last
         end
 
         def available_tags
@@ -54,7 +54,7 @@ module Capistrano
 
         def available_releases
           Capistrano::CLI.ui.say "\nAvailable Releases:"
-          Capistrano::CLI.ui.say "#{releases.join("\n")}"
+          Capistrano::CLI.ui.say "#{releases.sort.reverse.join("\n")}"
         end
 
         def banner
