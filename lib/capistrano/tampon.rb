@@ -1,13 +1,15 @@
 require 'capistrano'
 require 'capistrano/helpers/tampon_helper'
+require 'versionomy'
 require 'stringex'
 
 module Capistrano
   class Tampon
+    trap("SIGINT") { puts "Leaving Tampon!".color(:red); exit }
     # I gave up for now, since namespace can't call include
  #   include Capistrano::Helpers::TamponHelper
-
     def self.load_into(capistrano_configuration)
+
       capistrano_configuration.load do
         before "deploy:update_code", "tampon:calculate_tag"
         before "tampon:calculate_tag", "tampon:verify_up_to_date"
@@ -40,11 +42,11 @@ module Capistrano
         end
 
         def releases
-          tags.select{|t| t =~ /^#{version_tag_prefix}(\d+)/}.collect{|version| Versionomy.parse(version) }
+          tags.select{|t| t =~ /^#{version_tag_prefix}(\d+)/}.collect{|version| Versionomy.parse(version) }.sort
         end
 
         def latest_release
-          releases.sort.reverse.last
+          releases.reverse.first
         end
 
         def available_tags
@@ -72,6 +74,9 @@ module Capistrano
 
 
           def deploy_from
+
+
+            puts banner
             if stage == :production
               available_releases
               from_destination = Capistrano::CLI.ui.ask "\nRelease to deploy: [#{latest_release}] ".color(:yellow).bright
