@@ -46,7 +46,7 @@ module Capistrano
         end
 
         def latest_release
-          releases.reverse.first
+          releases.reverse.first.to_s
         end
 
         def available_tags
@@ -55,7 +55,7 @@ module Capistrano
         end
 
         def available_releases
-          Capistrano::CLI.ui.say "\nAvailable Releases:"
+          Capistrano::CLI.ui.say "\nAvailable Releases:".color :green
           Capistrano::CLI.ui.say "#{releases.sort.reverse.join("\n")}"
         end
 
@@ -74,12 +74,12 @@ module Capistrano
 
 
           def deploy_from
-
-
             puts banner
             if stage == :production
               available_releases
-              from_destination = Capistrano::CLI.ui.ask "\nRelease to deploy: [#{latest_release}] ".color(:yellow).bright
+              from_destination = Capistrano::CLI.ui.ask("\nRelease to deploy:".color(:yellow).bright) do |q|
+                q.default = latest_release
+              end
             else
               create_tag = Capistrano::CLI.ui.agree("Do you want to tag deployment? [y/N]".color(:yellow)) do |q|
                 q.default = 'N'
