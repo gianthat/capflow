@@ -24,4 +24,11 @@ namespace :gitflow do
     `git config gitflow.prefix.support "support/"`
     
   end
+
+end
+namespace :tampon do
+  desc "Show available releases"
+  task :releases do
+    puts `git tag`.split("\n").compact.collect{|version| Versionomy.parse(version)}.sort.reverse
+  end
 end
