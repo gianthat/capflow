@@ -26,6 +26,7 @@ namespace :gitflow do
   end
 
 end
+
 namespace :tampon do
   desc "Show available releases"
   task :releases do
