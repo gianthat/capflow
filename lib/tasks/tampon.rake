@@ -32,4 +32,9 @@ namespace :tampon do
   task :releases do
     puts `git tag`.split("\n").compact.collect{|version| Versionomy.parse(version)}.sort.reverse
   end
+
+  task :configuration do
+    puts "Gitflow"
+    Tampon::Configuration.gitflow.each_pair { |k,v| puts "#{k}: #{v}" }
+  end
 end
