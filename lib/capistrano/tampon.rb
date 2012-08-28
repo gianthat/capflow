@@ -2,6 +2,7 @@ require 'capistrano'
 require 'capistrano/helpers/tampon_helper'
 require 'versionomy'
 require 'stringex'
+require 'rainbow'
 
 module Capistrano
   class Tampon

@@ -5,6 +5,7 @@ source "http://rubygems.org"
 gem 'capistrano'
 gem 'stringex'
 gem 'versionomy'
+gem 'rainbow'
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
