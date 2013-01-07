@@ -1,0 +1,8 @@
+Ablerc.setup do
+
+  rc_file_name ".tamponrc"
+
+  scheme :user, :local
+
+  option :gitflow_master, :default => "master"
+end
