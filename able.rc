@@ -1,0 +1,18 @@
+Ablerc.setup do
+
+  rc_file_name ".tamponrc"
+
+  scheme :user, :local
+
+  option :gitflow_master, :default => "master"
+  option :gitflow_develop, :default => "develop"
+  option :gitflow_feature, :default => "feature"
+  option :gitflow_release, :default => "release"
+  option :gitflow_version_tag, :default => "v"
+
+  option :deploy_production, :default => "production"
+  option :deploy_staging, :default => "[:staging, :qa]"
+  option :previous_releases, :default => '3'
+  option :allow_untagged_deply, :boolean => true
+
+end

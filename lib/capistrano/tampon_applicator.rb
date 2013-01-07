@@ -1,11 +1,11 @@
 require 'capistrano'
-require 'capistrano/helpers/tampon_helper'
+require File.join(File.expand_path('../..', __FILE__), 'tampon')
 require 'versionomy'
 require 'stringex'
 require 'rainbow'
 
 module Capistrano
-  class Tampon
+  class TamponApplicator 
     trap("SIGINT") { puts "Leaving Tampon!".color(:red); exit }
     # I gave up for now, since namespace can't call include
  #   include Capistrano::Helpers::TamponHelper
@@ -51,13 +51,13 @@ module Capistrano
         end
 
         def available_tags
-          Capistrano::CLI.ui.say "Available Tags:"
-          Capistrano::CLI.ui.say "#{non_release_tags.join("\n")}"
+          Capistrano::CLI.ui.say "Available Tags:".color :green
+          Capistrano::CLI.ui.say "#{releases.sort.reverse.take(Tampon::Configuration.previous_releases.to_i).join("\n")}"
         end
 
         def available_releases
           Capistrano::CLI.ui.say "\nAvailable Releases:".color :green
-          Capistrano::CLI.ui.say "#{releases.sort.reverse.join("\n")}"
+          Capistrano::CLI.ui.say "#{releases.reverse.take(Tampon::Configuration.previous_releases.to_i).join("\n")}"
         end
 
         def banner
@@ -193,5 +193,5 @@ Please make sure you have pulled and pushed all code before deploying:
 end
 
 if Capistrano::Configuration.instance
-  Capistrano::Tampon.load_into(Capistrano::Configuration.instance)
+  Capistrano::TamponApplicator.load_into(Capistrano::Configuration.instance)
 end
