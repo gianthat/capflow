@@ -29,12 +29,43 @@ end
 
 namespace :tampon do
   desc "Show available releases"
-  task :releases do
+  task :releases do 
     puts `git tag`.split("\n").compact.collect{|version| Versionomy.parse(version)}.sort.reverse
+    exit
   end
 
   task :configuration do
     puts "Gitflow"
-    Tampon::Configuration.gitflow.each_pair { |k,v| puts "#{k}: #{v}" }
+    Tampon::Configuration.ablerc.stub.generate :local
+    exit
+  end
+end
+
+# from https://github.com/technicalpickles/jeweler/blob/master/lib/jeweler/tasks.rb
+namespace :version do
+  desc "Writes out an explicit version. Respects the following environment variables, or defaults to 0: MAJOR, MINOR, PATCH. Also recognizes BUILD, which defaults to nil"
+  task :write do
+    version = Tampon::Version.write_version( :major => ENV['MAJOR'].to_i, :minor => ENV['MINOR'].to_i, :tiny => ENV['PATCH'].to_i, :build => (ENV['BUILD'] || nil ) )
+    $stdout.puts "Updated version: #{version.to_s}"
+  end
+
+  namespace :bump do
+    desc "Bump the major version by 1"
+    task :major => [:version_required, :version] do
+      #jeweler.bump_major_version
+      $stdout.puts "Updated version: #{jeweler.version}"
+    end
+
+    desc "Bump the a minor version by 1"
+    task :minor => [:version_required, :version] do
+      #jeweler.bump_minor_version
+      $stdout.puts "Updated version: #{jeweler.version}"
+    end
+
+    desc "Bump the patch version by 1"
+    task :patch => [:version_required, :version] do
+      #jeweler.bump_patch_version
+      $stdout.puts "Updated version: #{jeweler.version}"
+    end
   end
 end

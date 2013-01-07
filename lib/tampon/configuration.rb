@@ -1,4 +1,5 @@
 require 'yaml'
+require 'ablerc'
 module Tampon
   module Configuration
 
@@ -8,16 +9,19 @@ module Tampon
     GLOBAL_CONFIG_FILE  = "#{Dir.home}/#{CONFIG_FILE_NAME}"
     PROJECT_CONFIG_FILE = "#{Dir.pwd}/#{CONFIG_FILE_NAME}" 
 
-    @_config = Hashie::Mash.new
     attr_reader :_config
+    @_ablerc
+
+    def ablerc
+      Ablerc
+    end
 
     def load!(filename, options={})
-      settings = Hashie::Mash.new YAML::load_file(filename)
-      @_config.deep_merge!(settings)
+      @_ablerc ||= Ablerc.load! Tampon.root
     end
 
     def method_missing(name, *args, &block)
-      @_config.send(name.to_sym) || fail(NoMethodError, "unknown configuration root #{name}", caller)
+      Ablerc.config.send(name.to_sym) || fail(NoMethodError, "unknown configuration root #{name}", caller)
     end
 
     def user_settings?
