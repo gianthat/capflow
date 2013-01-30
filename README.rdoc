@@ -1,11 +1,5 @@
 = capflow
 
-  ,-------------.
- (o) _ __ _____  )--.
-  `-------------'    )
-                    (     /
-                     `---'
-
 Capflow provides Gitflow integration with Capistrano, without unessecary restrictions to the deploy process. Our goal with capflow was to improve on capistrano-gitflow by allowing you to tag a staging release (or not tag a staging release),
 deploy from the HEAD of whatever branch you are on (feature, develop, hotfix, etc), and deploy to production from bonafide gitflow release tags. 
 
