@@ -64,11 +64,6 @@ module Capistrano
 
           <<-BANNER
 \nCapflow for Gitflow
-  ,-------------.
- (o) _ __ _____  )--.
-  `-------------'    )
-                    (     /
-                     `---'
           BANNER
         end
 
