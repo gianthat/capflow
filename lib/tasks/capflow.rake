@@ -1,5 +1,5 @@
 namespace :gitflow do
-  desc 'Gitflow setup for use with tampon'
+  desc 'Gitflow setup for use with capflow'
   task :prepare do
      if (`git branch -r --no-color` =~ /develop/).nil?
       #doesn't exist remotely
@@ -27,7 +27,7 @@ namespace :gitflow do
 
 end
 
-namespace :tampon do
+namespace :capflow do
   desc "Show available releases"
   task :releases do 
     puts `git tag`.split("\n").compact.collect{|version| Versionomy.parse(version)}.sort.reverse
@@ -36,7 +36,7 @@ namespace :tampon do
 
   task :configuration do
     puts "Gitflow"
-    Tampon::Configuration.ablerc.stub.generate :local
+    Capflow::Configuration.ablerc.stub.generate :local
     exit
   end
 end
@@ -45,7 +45,7 @@ end
 namespace :version do
   desc "Writes out an explicit version. Respects the following environment variables, or defaults to 0: MAJOR, MINOR, PATCH. Also recognizes BUILD, which defaults to nil"
   task :write do
-    version = Tampon::Version.write_version( :major => ENV['MAJOR'].to_i, :minor => ENV['MINOR'].to_i, :tiny => ENV['PATCH'].to_i, :build => (ENV['BUILD'] || nil ) )
+    version = Capflow::Version.write_version( :major => ENV['MAJOR'].to_i, :minor => ENV['MINOR'].to_i, :tiny => ENV['PATCH'].to_i, :build => (ENV['BUILD'] || nil ) )
     $stdout.puts "Updated version: #{version.to_s}"
   end
 
