@@ -1,11 +1,11 @@
 require 'yaml'
 require 'ablerc'
-module Tampon
+module Capflow
   module Configuration
 
     extend self
 
-    CONFIG_FILE_NAME    = '.tamponrc'
+    CONFIG_FILE_NAME    = '.capflowrc'
     GLOBAL_CONFIG_FILE  = "#{Dir.home}/#{CONFIG_FILE_NAME}"
     PROJECT_CONFIG_FILE = "#{Dir.pwd}/#{CONFIG_FILE_NAME}" 
 
@@ -17,7 +17,7 @@ module Tampon
     end
 
     def load!(filename, options={})
-      @_ablerc ||= Ablerc.load! Tampon.root
+      @_ablerc ||= Ablerc.load! Capflow.root
     end
 
     def method_missing(name, *args, &block)

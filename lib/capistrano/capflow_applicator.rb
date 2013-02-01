@@ -1,21 +1,21 @@
 require 'capistrano'
-require File.join(File.expand_path('../..', __FILE__), 'tampon')
+require File.join(File.expand_path('../..', __FILE__), 'capflow')
 require 'versionomy'
 require 'stringex'
 require 'rainbow'
 
 module Capistrano
-  class TamponApplicator 
-    trap("SIGINT") { puts "Leaving Tampon!".color(:red); exit }
+  class CapflowApplicator 
+    trap("SIGINT") { puts "Leaving Capflow!".color(:red); exit }
     # I gave up for now, since namespace can't call include
- #   include Capistrano::Helpers::TamponHelper
+ #   include Capistrano::Helpers::CapflowHelper
     def self.load_into(capistrano_configuration)
 
       capistrano_configuration.load do
-        before "deploy:update_code", "tampon:calculate_tag"
-        before "tampon:calculate_tag", "tampon:verify_up_to_date"
+        before "deploy:update_code", "capflow:calculate_tag"
+        before "capflow:calculate_tag", "capflow:verify_up_to_date"
 
-        namespace :tampon do
+        namespace :capflow do
               
         def who
           identity = (`git config user.name` || `whoami`)
@@ -52,23 +52,18 @@ module Capistrano
 
         def available_tags
           Capistrano::CLI.ui.say "Available Tags:".color :green
-          Capistrano::CLI.ui.say "#{releases.sort.reverse.take(Tampon::Configuration.previous_releases.to_i).join("\n")}"
+          Capistrano::CLI.ui.say "#{releases.sort.reverse.take(Capflow::Configuration.previous_releases.to_i).join("\n")}"
         end
 
         def available_releases
           Capistrano::CLI.ui.say "\nAvailable Releases:".color :green
-          Capistrano::CLI.ui.say "#{releases.reverse.take(Tampon::Configuration.previous_releases.to_i).join("\n")}"
+          Capistrano::CLI.ui.say "#{releases.reverse.take(Capflow::Configuration.previous_releases.to_i).join("\n")}"
         end
 
         def banner
 
           <<-BANNER
-\nTampon for Gitflow
-  ,-------------.
- (o) _ __ _____  )--.
-  `-------------'    )
-                    (     /
-                     `---'
+\nCapflow for Gitflow
           BANNER
         end
 
@@ -193,5 +188,5 @@ Please make sure you have pulled and pushed all code before deploying:
 end
 
 if Capistrano::Configuration.instance
-  Capistrano::TamponApplicator.load_into(Capistrano::Configuration.instance)
+  Capistrano::CapflowApplicator.load_into(Capistrano::Configuration.instance)
 end

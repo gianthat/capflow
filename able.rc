@@ -1,6 +1,6 @@
 Ablerc.setup do
 
-  rc_file_name ".tamponrc"
+  rc_file_name ".capflowrc"
 
   scheme :user, :local
 
