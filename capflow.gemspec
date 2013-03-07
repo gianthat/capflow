@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "capflow"
-  s.version = "2.0.0"
+  s.version = "0.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Spencer Markowski"]
-  s.date = "2013-02-01"
+  s.date = "2013-03-07"
   s.description = "An unrestictive way to deploy using gitflow and capistrano"
   s.email = "spencer@theablefew.com"
   s.extra_rdoc_files = [
@@ -23,14 +23,11 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "able.rc",
     "capflow.gemspec",
     "features/capflow.feature",
     "features/step_definitions/capflow_steps.rb",
     "features/support/env.rb",
     "lib/capflow.rb",
-    "lib/capflow/configuration.rb",
-    "lib/capflow/version.rb",
     "lib/capistrano/capflow.rb",
     "lib/railtie.rb",
     "lib/tasks/capflow.rake",
@@ -51,43 +48,8 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<capistrano>, [">= 0"])
       s.add_runtime_dependency(%q<stringex>, [">= 0"])
-      s.add_runtime_dependency(%q<hashie>, [">= 0"])
       s.add_runtime_dependency(%q<versionomy>, [">= 0"])
       s.add_runtime_dependency(%q<rainbow>, [">= 0"])
-      s.add_runtime_dependency(%q<ablerc>, ["~> 0.1.0"])
-      s.add_runtime_dependency(%q<capflow>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_development_dependency(%q<active_support>, [">= 0"])
-      s.add_development_dependency(%q<i18n>, [">= 0"])
-      s.add_development_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_development_dependency(%q<active_support>, [">= 0"])
-      s.add_development_dependency(%q<i18n>, [">= 0"])
-      s.add_development_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_development_dependency(%q<active_support>, [">= 0"])
-      s.add_development_dependency(%q<i18n>, [">= 0"])
-      s.add_development_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_development_dependency(%q<active_support>, [">= 0"])
-      s.add_development_dependency(%q<i18n>, [">= 0"])
-      s.add_development_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
       s.add_development_dependency(%q<active_support>, [">= 0"])
       s.add_development_dependency(%q<i18n>, [">= 0"])
@@ -99,43 +61,8 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<capistrano>, [">= 0"])
       s.add_dependency(%q<stringex>, [">= 0"])
-      s.add_dependency(%q<hashie>, [">= 0"])
       s.add_dependency(%q<versionomy>, [">= 0"])
       s.add_dependency(%q<rainbow>, [">= 0"])
-      s.add_dependency(%q<ablerc>, ["~> 0.1.0"])
-      s.add_dependency(%q<capflow>, [">= 0"])
-      s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_dependency(%q<active_support>, [">= 0"])
-      s.add_dependency(%q<i18n>, [">= 0"])
-      s.add_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_dependency(%q<active_support>, [">= 0"])
-      s.add_dependency(%q<i18n>, [">= 0"])
-      s.add_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_dependency(%q<active_support>, [">= 0"])
-      s.add_dependency(%q<i18n>, [">= 0"])
-      s.add_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-      s.add_dependency(%q<active_support>, [">= 0"])
-      s.add_dependency(%q<i18n>, [">= 0"])
-      s.add_dependency(%q<minitest-rg>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
       s.add_dependency(%q<active_support>, [">= 0"])
       s.add_dependency(%q<i18n>, [">= 0"])
@@ -148,43 +75,8 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<capistrano>, [">= 0"])
     s.add_dependency(%q<stringex>, [">= 0"])
-    s.add_dependency(%q<hashie>, [">= 0"])
     s.add_dependency(%q<versionomy>, [">= 0"])
     s.add_dependency(%q<rainbow>, [">= 0"])
-    s.add_dependency(%q<ablerc>, ["~> 0.1.0"])
-    s.add_dependency(%q<capflow>, [">= 0"])
-    s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-    s.add_dependency(%q<active_support>, [">= 0"])
-    s.add_dependency(%q<i18n>, [">= 0"])
-    s.add_dependency(%q<minitest-rg>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-    s.add_dependency(%q<active_support>, [">= 0"])
-    s.add_dependency(%q<i18n>, [">= 0"])
-    s.add_dependency(%q<minitest-rg>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-    s.add_dependency(%q<active_support>, [">= 0"])
-    s.add_dependency(%q<i18n>, [">= 0"])
-    s.add_dependency(%q<minitest-rg>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
-    s.add_dependency(%q<active_support>, [">= 0"])
-    s.add_dependency(%q<i18n>, [">= 0"])
-    s.add_dependency(%q<minitest-rg>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<shoulda>, ["~> 3.0.0.beta2"])
     s.add_dependency(%q<active_support>, [">= 0"])
     s.add_dependency(%q<i18n>, [">= 0"])
