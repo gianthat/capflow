@@ -1,10 +1,10 @@
 require 'helper'
 
-class TestTamponHelpers < Test::Unit::TestCase
+class TestCapflowHelpers < Test::Unit::TestCase
   context "when intialized" do
     setup do 
      class HelperMethods
-       include Capistrano::Helpers::TamponHelper
+       include Capistrano::Helpers::CapflowHelper
      end
 
      @test_class = HelperMethods.new

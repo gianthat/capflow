@@ -1,3 +1,3 @@
-module Tampon
+module Capflow
   require 'railtie' if defined?(Rails)
 end

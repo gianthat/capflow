@@ -1,10 +1,10 @@
-require 'tampon'
+require 'capflow'
 require 'versionomy'
 require 'rails'
-module Tampon
+module Capflow
   class Railtie < Rails::Railtie
     rake_tasks do
-      load "tasks/tampon.rake"
+      load "tasks/capflow.rake"
     end
   end
 end

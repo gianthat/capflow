@@ -14,8 +14,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "tampon"
-  gem.homepage = "http://github.com/esmarkowski/tampon"
+  gem.name = "capflow"
+  gem.homepage = "http://github.com/esmarkowski/capflow"
   gem.license = "MIT"
   gem.summary = %Q{Gitflow enabled capistrano}
   gem.description = %Q{An unrestictive way to deploy using gitflow and capistrano}

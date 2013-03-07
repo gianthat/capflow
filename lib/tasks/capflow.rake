@@ -1,5 +1,5 @@
 namespace :gitflow do
-  desc 'Gitflow setup for use with tampon'
+  desc 'Gitflow setup for use with capflow'
   task :prepare do
      if (`git branch -r --no-color` =~ /develop/).nil?
       #doesn't exist remotely
@@ -27,7 +27,7 @@ namespace :gitflow do
 
 end
 
-namespace :tampon do
+namespace :capflow do
   desc "Show available releases"
   task :releases do
     puts `git tag`.split("\n").compact.collect{|version| Versionomy.parse(version)}.sort.reverse

@@ -1,21 +1,21 @@
 require 'capistrano'
-require 'capistrano/helpers/tampon_helper'
+require 'capistrano/helpers/capflow_helper'
 require 'versionomy'
 require 'stringex'
 require 'rainbow'
 
 module Capistrano
-  class Tampon
-    trap("SIGINT") { puts "Leaving Tampon!".color(:red); exit }
+  class Capflow
+    trap("SIGINT") { puts "Leaving Capflow!".color(:red); exit }
     # I gave up for now, since namespace can't call include
- #   include Capistrano::Helpers::TamponHelper
+ #   include Capistrano::Helpers::CapflowHelper
     def self.load_into(capistrano_configuration)
 
       capistrano_configuration.load do
-        before "deploy:update_code", "tampon:calculate_tag"
-        before "tampon:calculate_tag", "tampon:verify_up_to_date"
+        before "deploy:update_code", "capflow:calculate_tag"
+        before "capflow:calculate_tag", "capflow:verify_up_to_date"
 
-        namespace :tampon do
+        namespace :capflow do
               
         def who
           identity = (`git config user.name` || `whoami`)
@@ -63,7 +63,7 @@ module Capistrano
         def banner
 
           <<-BANNER
-\nTampon for Gitflow
+\nCapflow for Gitflow
   ,-------------.
  (o) _ __ _____  )--.
   `-------------'    )
@@ -193,5 +193,5 @@ Please make sure you have pulled and pushed all code before deploying:
 end
 
 if Capistrano::Configuration.instance
-  Capistrano::Tampon.load_into(Capistrano::Configuration.instance)
+  Capistrano::Capflow.load_into(Capistrano::Configuration.instance)
 end

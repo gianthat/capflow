@@ -1,6 +1,6 @@
 module Capistrano
   module Helpers
-    module TamponHelper
+    module CapflowHelper
       
         def who
           identity = (`git config user.name` || `whoami`)
@@ -48,7 +48,7 @@ module Capistrano
         def banner
 
           <<-BANNER
-\nTampon for Gitflow
+\nCapflow for Gitflow
   ,-------------.
  (o) _ __ _____  )--.
   `-------------'    )

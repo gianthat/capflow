@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "tampon"
+  s.name = "capflow"
   s.version = "0.6.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Spencer Markowski"]
-  s.date = "2012-08-28"
+  s.date = "2013-03-07"
   s.description = "An unrestictive way to deploy using gitflow and capistrano"
   s.email = "spencer@theablefew.com"
   s.extra_rdoc_files = [
@@ -23,24 +23,24 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "features/step_definitions/tampon_steps.rb",
+    "capflow.gemspec",
+    "features/capflow.feature",
+    "features/step_definitions/capflow_steps.rb",
     "features/support/env.rb",
-    "features/tampon.feature",
-    "lib/capistrano/helpers/tampon_helper.rb",
-    "lib/capistrano/tampon.rb",
+    "lib/capflow.rb",
+    "lib/capistrano/capflow.rb",
+    "lib/capistrano/helpers/capflow_helper.rb",
     "lib/railtie.rb",
-    "lib/tampon.rb",
-    "lib/tasks/tampon.rake",
-    "recipes/tampon_recipes.rb",
-    "tampon.gemspec",
+    "lib/tasks/capflow.rake",
+    "recipes/capflow_recipes.rb",
     "test/helper.rb",
-    "test/test_tampon.rb",
-    "test/test_tampon_helpers.rb"
+    "test/test_capflow.rb",
+    "test/test_capflow_helpers.rb"
   ]
-  s.homepage = "http://github.com/esmarkowski/tampon"
+  s.homepage = "http://github.com/esmarkowski/capflow"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Gitflow enabled capistrano"
 
   if s.respond_to? :specification_version then
